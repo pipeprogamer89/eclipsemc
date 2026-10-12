@@ -457,6 +457,50 @@
         }
         .btn .btn-icon { font-size: 1.2rem; }
 
+        /* ============ POWERED BY ============ */
+        .powered-by {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 28px 0 8px;
+            padding: 20px 24px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(168,85,247,0.15);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .powered-by-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .powered-by-item img {
+            height: 32px;
+            width: auto;
+            max-width: 110px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(168,85,247,0.4));
+            transition: var(--transition-bounce);
+        }
+        .powered-by-item img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px rgba(168,85,247,0.7));
+        }
+        .powered-by-item span {
+            white-space: nowrap;
+            color: var(--violet-light);
+            font-weight: 600;
+        }
+
         /* ============ COUNTDOWN ============ */
         .countdown-container {
             display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
@@ -509,14 +553,142 @@
             font-weight: 500;
         }
 
-        /* ============ TRAILER ============ */
-        .trailer-container {
+        /* ============ GALERÍA ============ */
+        .gallery-section {
+            position: relative;
+            z-index: 1;
+            padding: 60px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            aspect-ratio: 16/10;
+            background: var(--bg-surface);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(168,85,247,0.45);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 40px rgba(168,85,247,0.2);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(6,4,13,0.7) 0%, transparent 50%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ============ PRÓXIMAMENTE ============ */
+        .coming-soon-card {
+            background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(236,72,153,0.05));
+            border: 1px solid rgba(168,85,247,0.25);
+            border-radius: var(--radius-lg);
+            padding: 60px 30px;
+            text-align: center;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-card);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(168,85,247,0.1), transparent 30%);
+            animation: ringSpin 8s linear infinite;
+            pointer-events: none;
+        }
+        .coming-soon-icon {
+            font-size: 4rem;
+            display: inline-block;
+            margin-bottom: 16px;
+            animation: iconFloat 3.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(168,85,247,0.5));
+        }
+        .coming-soon-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .coming-soon-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .coming-soon-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(236,72,153,0.12);
+            border: 1px solid rgba(236,72,153,0.3);
+            color: var(--pink-neon);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* ============ CREADORES ============ */
+        .creators-section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .creator-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 32px 24px;
+            text-align: center;
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             box-shadow: var(--shadow-card);
@@ -524,23 +696,44 @@
             position: relative;
             overflow: hidden;
         }
-        .trailer-container:hover {
-            border-color: rgba(168,85,247,0.35);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.75), 0 0 40px rgba(168,85,247,0.2);
+        .creator-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(168,85,247,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 40px rgba(168,85,247,0.15);
         }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(168,85,247,0.15);
+        .creator-head {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(168,85,247,0.5);
+            box-shadow: 0 0 25px rgba(168,85,247,0.4);
+            margin: 0 auto 16px;
+            display: block;
+            object-fit: cover;
+            transition: var(--transition-bounce);
+            image-rendering: pixelated;
         }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
+        .creator-card:hover .creator-head {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(168,85,247,0.7);
+            border-color: rgba(236,72,153,0.6);
+        }
+        .creator-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 4px;
+        }
+        .creator-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--violet-light);
+            font-weight: 600;
+            background: rgba(168,85,247,0.1);
+            padding: 4px 14px;
+            border-radius: 50px;
+            display: inline-block;
         }
 
         /* ============ FEATURES GRID ============ */
@@ -794,9 +987,12 @@
             .countdown-item { min-width: 65px; padding: 14px 16px; }
             .countdown-number { font-size: 2rem; }
             .section { padding: 60px 16px; }
-            .features-grid, .community-cards { grid-template-columns: 1fr; }
+            .features-grid, .community-cards, .gallery-grid, .creators-grid { grid-template-columns: 1fr; }
             .blob { display: none; }
             .liquid-glass-orb { opacity: 0.5; }
+            .powered-by { gap: 20px; padding: 16px; }
+            .powered-by-item img { height: 26px; }
+            .creator-head { width: 64px; height: 64px; }
         }
         @media (max-width: 480px) {
             .hero-title h1 { font-size: 2.6rem; }
@@ -810,6 +1006,7 @@
             .nav-logo img { height: 26px; width: 26px; }
             .nav-logo span { font-size: 0.9rem; }
             .hero-logo { width: 110px; height: 110px; }
+            .powered-by { flex-direction: column; gap: 14px; }
         }
 
         /* TOOLTIP */
@@ -866,8 +1063,9 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio" data-nav-close>Inicio</a></li>
-                <li><a href="#trailer" data-nav-close>Trailer</a></li>
+                <li><a href="#galeria" data-nav-close>Galería</a></li>
                 <li><a href="#caracteristicas" data-nav-close>Características</a></li>
+                <li><a href="#creadores" data-nav-close>Creadores</a></li>
                 <li><a href="#conexion" data-nav-close>Conexión</a></li>
                 <li><a href="#comunidad" data-nav-close>Comunidad</a></li>
                 <li><a href="https://discord.gg/NUPn9WmJW7" target="_blank" rel="noopener" class="nav-cta">💬 Discord</a></li>
@@ -897,16 +1095,60 @@
                     <a href="#caracteristicas" class="btn btn-primary"><span class="btn-icon">✨</span> Descubrir el servidor</a>
                     <a href="https://discord.gg/NUPn9WmJW7" target="_blank" rel="noopener" class="btn btn-secondary"><span class="btn-icon">💬</span> Unirse a Discord</a>
                 </div>
+
+                <!-- Powered by -->
+                <div class="powered-by reveal reveal-delay-3">
+                    <div class="powered-by-item">
+                        <img src="https://1000logos.net/wp-content/uploads/2017/03/LINUX-LOGO.png" alt="Linux">
+                        <span>Powered by Linux</span>
+                    </div>
+                    <div class="powered-by-item">
+                        <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Pterodactyl Panel">
+                        <span>Powered by Pterodactyl Panel</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="trailer">
-            <span class="section-label reveal">🎬 Trailer Oficial</span>
-            <h2 class="section-title reveal reveal-delay-1"><span class="pink-text">Descubre</span> el mundo</h2>
-            <p class="section-subtitle reveal reveal-delay-2">Mira el tráiler de lanzamiento y prepárate para la aventura definitiva.</p>
-            <div class="trailer-container reveal reveal-delay-3">
-                <div class="video-wrapper">
-                    <iframe src="&rel=0" title="EclipseMC Trailer" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- ============ GALERÍA ============ -->
+        <section class="gallery-section" id="galeria">
+            <span class="section-label reveal">🖼️ Galería</span>
+            <h2 class="section-title reveal reveal-delay-1"><span class="pink-text">Explora</span> <span class="reveal reveal-delay-2">el mundo</span></h2>
+            <p class="section-subtitle reveal reveal-delay-3">Un vistazo a los paisajes, construcciones y aventuras que te esperan en EclipseMC.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal reveal-delay-1">
+                    <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Minecraft%20_Holiday_Game_Drop_2025_OV-PMP_1280x720.jpg" alt="Minecraft Holiday" loading="lazy">
+                </div>
+                <div class="gallery-item reveal reveal-delay-2">
+                    <img src="https://www.jeremymorgan.com/images/tutorials/linux/how-to-make-minecraft-server/how-to-make-minecraft-server-00.webp" alt="Minecraft Server" loading="lazy">
+                </div>
+                <div class="gallery-item reveal reveal-delay-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8P_b80TKu7lq387fPHckSAsvklfepcKmvraec8Q3vkIt5M9MKJ_lc0Rc&s=10" alt="Minecraft Landscape" loading="lazy">
+                </div>
+                <div class="gallery-item reveal reveal-delay-1">
+                    <img src="https://images.immediate.co.uk/production/volatile/sites/3/2021/04/Minecraft-Servers-c2ac747.jpg?quality=90&resize=940,627" alt="Minecraft Servers" loading="lazy">
+                </div>
+                <div class="gallery-item reveal reveal-delay-2">
+                    <img src="https://preview.redd.it/servidor-de-minecraft-con-host-en-argentina-survival-v0-muum07joz6ag1.png?width=2880&format=png&auto=webp&s=a91e622d3a73a4d990b4d9267464b2e213c2afc2" alt="Survival Server" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CREADORES ============ -->
+        <section class="creators-section" id="creadores">
+            <span class="section-label reveal">👑 Creadores</span>
+            <h2 class="section-title reveal reveal-delay-1"><span class="violet-text">Conoce</span> <span class="reveal reveal-delay-2">al equipo</span></h2>
+            <p class="section-subtitle reveal reveal-delay-3">Las mentes detrás de EclipseMC. Apasionados por Minecraft y dedicados a crear la mejor experiencia.</p>
+            <div class="creators-grid">
+                <div class="creator-card reveal reveal-delay-1">
+                    <img class="creator-head" src="https://mc-heads.net/avatar/pipeprogamer89/80" alt="pipeprogamer89" loading="lazy">
+                    <div class="creator-name">pipeprogamer89</div>
+                    <span class="creator-role">Owner</span>
+                </div>
+                <div class="creator-card reveal reveal-delay-2">
+                    <img class="creator-head" src="https://mc-heads.net/avatar/ShadowEDF/80" alt="ShadowEDF" loading="lazy">
+                    <div class="creator-name">ShadowEDF</div>
+                    <span class="creator-role">Co-Owner</span>
                 </div>
             </div>
         </section>
@@ -1127,7 +1369,7 @@
                 }
             });
 
-            document.querySelectorAll('.btn, .feature-card, .community-card, .nav-links a').forEach(el=>{
+            document.querySelectorAll('.btn, .feature-card, .community-card, .nav-links a, .gallery-item, .creator-card').forEach(el=>{
                 el.addEventListener('mouseenter',()=>{ initAudio(); sfxHover(); });
             });
             document.querySelectorAll('.btn, .nav-cta').forEach(el=>{
